@@ -1,0 +1,128 @@
+.nav {
+  position: fixed;
+  padding: 0 2em;
+  overflow-x: hidden;
+  margin-bottom: 5em;
+  max-height: calc(100vh - 202px - 20px);
+  height: calc(100vh - 202px - 20px);
+}
+.nav::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+.nav::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+/* .nav::-webkit-scrollbar-track {
+  background: #e0e0e0;
+} */
+
+/* Handle */
+.nav::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 1em;
+}
+
+/* Handle on Hover */
+.nav::-webkit-scrollbar-track:hover {
+  background: #555;
+}
+.nav_title {
+  color: var(--font-secondary-color);
+  margin: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+.nav[aria-expanded='false'] .nav_title {
+  display: none;
+}
+.nav[aria-expanded='true'] .nav_title {
+  margin: 2em 0 1em;
+  opacity: 1;
+  transition: var(--transition-speed);
+  transition-delay: var(--transition-delay);
+}
+
+.nav ul {
+  list-style: none;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.nav_items {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 4px;
+  width: 100%;
+  height: 40px;
+  padding: 0 0.75em;
+  color: var(--font-primary-color);
+  margin: 0.25em 0;
+  transition: background 500ms;
+}
+
+.nav[aria-expanded='false'] .nav_items {
+  height: 30px;
+}
+
+.nav[aria-expanded='false'] .nav_items {
+  transition: 1s ease;
+  width: 40px;
+}
+.nav_items.active {
+  background-color: var(--primary-light-color);
+}
+
+.nav_items:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav_items i {
+  font-size: 2rem;
+}
+
+.nav_items span {
+  font-size: 1rem;
+  margin-left: -1em;
+  pointer-events: none;
+  opacity: 0;
+  transition: var(--transition-speed) ease;
+  transition-delay: var(--transition-delay);
+  overflow: hidden;
+}
+
+.nav[aria-expanded='true'] .nav_items span {
+  margin-left: 0.5em;
+  opacity: 1;
+}
+
+.nav hr {
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin: 1em 0;
+  opacity: 0;
+  transition: var(--transition-speed);
+}
+
+.nav[aria-expanded='true'] hr {
+  margin: 2em 0 1em;
+  opacity: 0.5;
+}
+
+.nav_items.active {
+  background-color: var(--primary-light-color);
+}
+/* 
+@media (prefers-color-scheme: dark) {
+    .nav_items.active {
+        background-color: var(--primary-dark-color);
+    }
+} */
+
+body[dark-mode='true'] .nav_items.active {
+  background-color: var(--primary-dark-color);
+}

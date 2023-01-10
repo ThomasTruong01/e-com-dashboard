@@ -1,0 +1,67 @@
+.logo {
+    --button-color: #fff;
+    --transition-speed: 500ms;
+    width: 100%;
+    /* height: auto; */
+    padding: 20px 0 0;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+.line1, .line2, .circle1 {
+    transition: var(--transition-speed);
+    transform-origin: center;
+    stroke-dasharray: 292;
+    stroke-dashoffset: 292;
+    animation: write 1500ms ease-in-out forwards;
+    animation-iteration-count: 1;
+}
+
+.line1, .circle1{
+    stroke: var(--primary-light-color);
+    transition: var(--transition-speed);
+}
+body[dark-mode='true'] .line1,
+body[dark-mode='true'] .circle1{
+    stroke: var(--primary-dark-color);
+    animation: write 1500ms ease-in-out forwards;
+    animation-iteration-count: 1;
+}
+
+.logo svg:hover .line1, .logo svg:hover .circle1  {
+    animation: write 1500ms ease-in-out alternate;
+    animation-iteration-count: infinite;
+}
+@keyframes write {
+    /* from {
+        stroke-dashoffset: 292;
+    } */
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+.logo svg {
+    width: 56px;
+    transition: var(--transition-speed);
+    transition-delay: var(--transition-delay);
+}
+.logo[aria-expanded='true'] svg {
+    width: 96px;
+    transition: 1s;
+}
+.logo h3 {
+    color: var(--font-primary-color);
+    font-size: 10px;
+    margin-top: 12px;
+    margin-bottom: 0;
+    font-variant: small-caps;
+    pointer-events: none;
+    opacity: 0;
+    scale: 0;
+    transition: var(--transition-speed);
+}
+.logo[aria-expanded='true'] h3 {
+    font-size: 36px;
+    opacity: 1;
+    scale: 1;
+}

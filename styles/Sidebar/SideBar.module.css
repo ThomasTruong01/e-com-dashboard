@@ -1,0 +1,40 @@
+.sidebar {
+    --primary-light-color: #34aaf1;
+    --primary-dark-color: #fe0c47;
+    --font-primary-color: #fff;
+    --font-secondary-color: #fff;
+    --transition-speed: 400ms;
+    --transition-delay: 200ms;
+    width: 120px;
+    height: 100vh;
+    background-color: rgba(10, 10, 10, .25);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 8px 32px rgb(2, 4, 24);
+    border-right: 2px solid rgba(255, 255, 255, .09);
+    transition: width var(--transition-speed) ease-in-out;
+    /* position: fixed; */
+    /* overflow-y: hidden; */
+}
+
+.sidebar[aria-expanded='true'] {
+    width: 300px;
+    min-width: 280px;
+    position: fixed;
+}
+.sidebar[aria-expanded='false'] {
+    height: 100vh;
+    position: fixed;
+}
+.sidebar[aria-expanded='false'] + div {
+    margin-left: 140px;
+    width: calc( 100vw - 140px );
+    transition: 500ms ease;
+}
+.sidebar[aria-expanded='true'] + div {
+    margin-left: 300px;
+    width: calc( 100vw - 300px );
+}
+.sidebar + div {
+    width: 100%;
+}
