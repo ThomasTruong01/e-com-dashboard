@@ -206,6 +206,7 @@ const Sidebar = ({
             <Box
               position='fixed'
               bottom='0'
+              width={drawerWidth}
               sx={{ backgroundColor: theme.palette.background.alt }}
             >
               <Divider />

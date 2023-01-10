@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
           router={router}
           user={user}
         />
-        <Box display='flex' flexDirection='column' width="100%">
+        <Box flexGrow={1}>
           <Navbar
             isSidebarOpen={isSidebarOpen}
             setIsSidebarOpen={setIsSidebarOpen}
