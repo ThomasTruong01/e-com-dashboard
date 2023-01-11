@@ -93,9 +93,6 @@ const Products = () => {
   useEffect(() => {
     getProducts()
   }, [])
-  useEffect(() => {
-    setIsLoading(false)
-  }, [products])
 
   return (
     <Box m="1.5rem 2.5rem">
