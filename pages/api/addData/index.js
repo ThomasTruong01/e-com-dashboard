@@ -1,8 +1,8 @@
 // api/users.js
 
 import dbConnect from '../../../lib/dbConnect'
-import Product from '../../../models/ProductStats'
-import { productData, ProductStats as ProductStat } from './data'
+import Model from '../../../models/AffiliateStat'
+import { dataAffiliateStat } from '../../../data/data'
 
 export default async function handler (req, res) {
   const { method } = req
@@ -21,10 +21,10 @@ export default async function handler (req, res) {
       break
     case 'POST':
       try {
-        const data = JSON.stringify(ProductStat)
+        const data = JSON.stringify(dataAffiliateStat)
         const data1 = JSON.parse(data)
-        const ProductStats = await Product.create(data1)
-        res.status(201).json({ success: true, data: ProductStats })
+        const AffiliateStat = await Model.create(data1)
+        res.status(201).json({ success: true, data: AffiliateStat })
       } catch (error) {
         res.status(400).json({ success: error })
       }

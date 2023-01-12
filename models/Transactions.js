@@ -1,4 +1,4 @@
-import { Schema, Types, model } from "mongoose";
+import { Schema, Types, model, models } from "mongoose";
 
 const TransactionSchema = new Schema(
   {
@@ -12,5 +12,5 @@ const TransactionSchema = new Schema(
   { timestamps: true }
 );
 
-const Transaction = model("Transaction", TransactionSchema);
+const Transaction = models.Transaction || model("Transaction", TransactionSchema);
 export default Transaction;
